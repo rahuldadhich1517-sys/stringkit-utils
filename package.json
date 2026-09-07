@@ -1,7 +1,7 @@
 {
   "name": "stringkit",
   "version": "0.1.0",
-  "description": "A lightweight TypeScript utility library for string and text manipulation.",
+  "description": "A lightweight, dependency-free TypeScript utility library for string and text manipulation.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -13,9 +13,37 @@
       "require": "./dist/index.cjs"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rahuldadhich1517-sys/stringkit"
+  },
+  "bugs": {
+    "url": "https://github.com/rahuldadhich1517-sys/stringkit/issues"
+  },
+  "homepage": "https://github.com/rahuldadhich1517-sys/stringkit#readme",
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  "keywords": [
+    "string",
+    "string-utils",
+    "text",
+    "text-utils",
+    "utilities",
+    "typescript",
+    "javascript",
+    "slugify",
+    "camelcase",
+    "pascalcase",
+    "snakecase",
+    "kebabcase",
+    "truncate",
+    "random-string",
+    "text-counter",
+    "mask"
+  ],
+  "license": "MIT",
   "scripts": {
     "build": "npm run clean && tsup src/index.ts --format esm,cjs && tsc",
     "clean": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\"",
@@ -23,16 +51,6 @@
     "test:run": "vitest run",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "string",
-    "text",
-    "utilities",
-    "typescript",
-    "javascript",
-    "string-utils",
-    "text-utils"
-  ],
-  "license": "MIT",
   "devDependencies": {
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",

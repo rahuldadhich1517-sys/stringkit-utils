@@ -64,17 +64,27 @@ export function truncate(
 
   const availableLength = maxLength - config.suffix.length;
 
-let truncated = text.slice(0, availableLength);
+  let truncated = text.slice(0, availableLength);
 
-if (config.preserveWords) {
-  const lastSpace = truncated.lastIndexOf(" ");
+  if (config.preserveWords && truncated.length < text.length) {
+    // Only preserve words if text was actually truncated
+    const lastSpace = truncated.lastIndexOf(" ");
 
-  if (lastSpace > 0 && lastSpace < truncated.length) {
-    truncated = truncated.slice(0, lastSpace);
+    // If there's a space, check if truncating there would help
+    if (lastSpace > 0) {
+      // Get the word after the last space
+      const afterSpace = text.slice(lastSpace + 1);
+      const nextSpaceIndex = afterSpace.indexOf(" ");
+      const nextWord = nextSpaceIndex === -1 ? afterSpace : afterSpace.slice(0, nextSpaceIndex);
+      
+      // If the next word extends beyond available length, truncate at the space
+      if (lastSpace + 1 + nextWord.length > availableLength) {
+        truncated = truncated.slice(0, lastSpace);
+      }
+    }
   }
-}
 
-truncated = truncated.trimEnd();
+  truncated = truncated.trimEnd();
 
-return truncated + config.suffix;
+  return truncated + config.suffix;
 }
