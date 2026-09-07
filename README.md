@@ -19,4 +19,4 @@ A lightweight, dependency-free TypeScript utility library for string and text ma
 ## Installation
 
 ```bash
-npm install stringkit
+npm install stringkit-utils
