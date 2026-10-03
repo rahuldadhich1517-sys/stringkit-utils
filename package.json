@@ -1,6 +1,6 @@
 {
   "name": "stringkit-utils",
-  "version": "0.1.2",
+  "version": "1.1.0",
   "description": "A lightweight, dependency-free TypeScript utility library for string and text manipulation.",
   "type": "module",
   "main": "./dist/index.cjs",
